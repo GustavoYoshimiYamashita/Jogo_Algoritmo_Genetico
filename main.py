@@ -1,3 +1,14 @@
+'''
+
+Apenas alguns testes envolvendo o Pygame
+
+Gustavo Yoshimi Yamashita
+Youtube: https://www.youtube.com/c/RobotizandoCanal
+LinkedIn: https://www.linkedin.com/in/gustavo-yamashita/
+
+'''
+
+
 import pygame
 from pygame.locals import *
 from pygame.transform import *

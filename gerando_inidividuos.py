@@ -1,3 +1,16 @@
+'''
+
+Esse código envolve o estudo da geração de indivíduos para posteriormente ser aplicado a técnica de
+algoritmos genéticos. O objetivo é entender como gerar os indivíduos tentando minimizar o tempo de
+processamento.
+
+Gustavo Yoshimi Yamashita
+Youtube: https://www.youtube.com/c/RobotizandoCanal
+LinkedIn: https://www.linkedin.com/in/gustavo-yamashita/
+
+'''
+
+
 import pygame
 from pygame.locals import *
 from pygame.transform import *

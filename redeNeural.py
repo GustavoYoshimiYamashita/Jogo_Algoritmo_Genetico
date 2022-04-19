@@ -1,3 +1,14 @@
+'''
+
+Esse código envolve o estudo da criação de uma rede neural com o objetivo de criar um machine learning utilizando
+como sistema de aprendizagem o algoritmo genético.
+
+Gustavo Yoshimi Yamashita
+Youtube: https://www.youtube.com/c/RobotizandoCanal
+LinkedIn: https://www.linkedin.com/in/gustavo-yamashita/
+
+'''
+
 from pybrain3.tools.shortcuts import buildNetwork
 from pybrain3.datasets import SupervisedDataSet
 from pybrain3.supervised.trainers import BackpropTrainer

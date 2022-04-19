@@ -1,3 +1,13 @@
+'''
+
+Estudando a ideia de criar um sensor de distância para um objeto no Pygame.
+
+Gustavo Yoshimi Yamashita
+Youtube: https://www.youtube.com/c/RobotizandoCanal
+LinkedIn: https://www.linkedin.com/in/gustavo-yamashita/
+
+'''
+
 import pygame
 from pygame.locals import *
 from pygame.transform import *
