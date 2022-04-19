@@ -135,7 +135,6 @@ criando_individuos(quantidade_individuos)
 now = datetime.now()
 
 
-
 while jogo:
 
     surface.fill(black)
