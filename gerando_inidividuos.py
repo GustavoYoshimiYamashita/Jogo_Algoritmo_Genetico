@@ -80,7 +80,7 @@ def movimento_aleatorio(velocidade):
             dic_individuos[nome_completo][4] = False
             mortos.append(dic_individuos[nome_completo])
 
-            pygame.draw.circle(surface, red, (dic_individuos[nome_completo][1], dic_individuos[nome_completo][2]), 6)
+            #pygame.draw.circle(surface, gray, (dic_individuos[nome_completo][1], dic_individuos[nome_completo][2]), 6)
         else:
             pygame.draw.circle(surface, white, (dic_individuos[nome_completo][1], dic_individuos[nome_completo][2]), 6)
 
@@ -88,12 +88,14 @@ def movimento_aleatorio(velocidade):
             dic_individuos[nome_completo][1] = dic_individuos[nome_completo][1] + x
             dic_individuos[nome_completo][2] = dic_individuos[nome_completo][2] + y
 
+
         try:
             valores = verifica_distancia(dic_individuos[nome_completo][1], dic_individuos[nome_completo][2], 50)
             dic_individuos[nome_completo][5] = valores
             # print(f"inidividuo: {dic_individuos[nome_completo][0]}, valores: {dic_individuos[nome_completo][5]}")
         except:
             pass
+
 
         if dic_individuos[nome_completo][5] == [1, 1, 1, 1]:
             dic_individuos[nome_completo][4] = False
@@ -122,7 +124,7 @@ def verifica_distancia(inicioX, inicioY, dist):
 
     # print(f"inicioX: {inicioX}, inicioY: {inicioY}, color: {surface.get_at((int(inicioX), int(inicioY)))[:3]}")
 
-    if surface.get_at((int(inicioX), int(inicioY)))[:3] == red:
+    if surface.get_at((int(inicioX + 3), int(inicioY + 3)))[:3] == red:
         valores = [1, 1, 1, 1]
     else:
         for x in range(int(dist + 6)):
@@ -151,7 +153,7 @@ now = datetime.now()
 while jogo:
 
     surface.fill(black)
-    pygame.draw.circle(surface, red, (center_v, center_h + 200), 20)
+    pygame.draw.circle(surface, red, (center_v, center_h + 100), 20)
 
     for event in pygame.event.get():
         if event.type == QUIT:
@@ -161,6 +163,6 @@ while jogo:
     # if (datetime.now() - now).seconds > 5:
     #    exit()
 
-    movimento_aleatorio(5)
+    movimento_aleatorio(3)
 
     pygame.display.update()
