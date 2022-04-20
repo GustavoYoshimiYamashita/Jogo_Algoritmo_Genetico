@@ -109,6 +109,7 @@ def cruzando_metade_aleatoria_metodo2(individuos):
 
 
 
+
 cruzando_metade_aleatoria_metodo2(individuos)
 
 
