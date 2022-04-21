@@ -16,6 +16,7 @@ from pygame.locals import *
 from pygame.transform import *
 from datetime import datetime
 import random
+import math
 
 # Booleano para o while do labirinto
 jogo = True
@@ -91,9 +92,9 @@ def movimento_aleatorio(velocidade):
 
 
         try:
-            valores = verifica_distancia(dic_individuos[nome_completo][1], dic_individuos[nome_completo][2], 200)
+            valores = verifica_distancia(dic_individuos[nome_completo][1], dic_individuos[nome_completo][2], 100)
             dic_individuos[nome_completo][5] = valores
-            #print(f"inidividuo: {dic_individuos[nome_completo][0]}, valores: {dic_individuos[nome_completo][5]}")
+            print(f"inidividuo: {dic_individuos[nome_completo][0]}, valores: {dic_individuos[nome_completo][5]}")
         except:
             pass
 
@@ -111,6 +112,8 @@ def verifica_distancia(inicioX, inicioY, dist):
     inicioXnegative = inicioX
     inicioYpositive = inicioY
     inicioYnegative = inicioY
+    inicialX = inicioX
+    inicialY = inicioY
 
     verificadorX = inicioX + dist
     verificadorY = inicioY + dist
@@ -131,17 +134,24 @@ def verifica_distancia(inicioX, inicioY, dist):
     if surface.get_at((int(inicioX + 3), int(inicioY + 3)))[:3] == red:
         valores = [1, 1, 1, 1]
     else:
+
         for x in range(int(dist + 6)):
-            inicioXpositive += 1
-            inicioYpositive += 1
-            inicioXnegative -= 1
-            inicioYnegative -= 1
 
+            if not surface.get_at((int(inicioXpositive), int(inicioY)))[:3] == red:
+                inicioXpositive += 1
+            if not surface.get_at((int(inicioXnegative), int(inicioY)))[:3] == red:
+                inicioXnegative -= 1
+            if not surface.get_at((int(inicioX), int(inicioYpositive)))[:3] == red:
+                inicioYpositive += 1
+            if not surface.get_at((int(inicioX), int(inicioYnegative)))[:3] == red:
+                inicioYnegative -= 1
 
-        valores = [inicioXpositive, inicioYpositive, inicioXnegative, inicioYnegative]
-
-    return valores
-
+        distNorte = abs(inicioYnegative - inicialY)
+        distSul= abs(inicioYpositive - inicialY)
+        distLeste = abs(inicioXpositive - inicialX)
+        distOeste = abs(inicioXnegative - inicialX)
+        valores = [distNorte, distSul, distLeste, distOeste]
+        return valores
 
 criando_individuos(quantidade_individuos)
 
@@ -161,6 +171,6 @@ while jogo:
     # if (datetime.now() - now).seconds > 5:
     #    exit()
 
-    movimento_aleatorio(1)
+    movimento_aleatorio(3)
 
     pygame.display.update()
