@@ -20,7 +20,6 @@ horizontal = 600
 center_h = (horizontal / 2)
 center_v = (vertical / 2)
 
-
 # Variáveis geração
 quantidade_individuos = 100
 dic_individuos = {}

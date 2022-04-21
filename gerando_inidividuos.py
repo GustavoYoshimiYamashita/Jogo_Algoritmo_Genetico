@@ -82,7 +82,8 @@ def movimento_aleatorio(velocidade):
 
             #pygame.draw.circle(surface, gray, (dic_individuos[nome_completo][1], dic_individuos[nome_completo][2]), 6)
         else:
-            pygame.draw.circle(surface, white, (dic_individuos[nome_completo][1], dic_individuos[nome_completo][2]), 6)
+            pass
+            #pygame.draw.circle(surface, white, (dic_individuos[nome_completo][1], dic_individuos[nome_completo][2]), 6)
 
         if dic_individuos[nome_completo][4] == True:
             dic_individuos[nome_completo][1] = dic_individuos[nome_completo][1] + x
@@ -90,12 +91,15 @@ def movimento_aleatorio(velocidade):
 
 
         try:
-            valores = verifica_distancia(dic_individuos[nome_completo][1], dic_individuos[nome_completo][2], 50)
+            valores = verifica_distancia(dic_individuos[nome_completo][1], dic_individuos[nome_completo][2], 200)
             dic_individuos[nome_completo][5] = valores
-            # print(f"inidividuo: {dic_individuos[nome_completo][0]}, valores: {dic_individuos[nome_completo][5]}")
+            #print(f"inidividuo: {dic_individuos[nome_completo][0]}, valores: {dic_individuos[nome_completo][5]}")
         except:
             pass
 
+        if dic_individuos[nome_completo] == dic_individuos["individuo1"]:
+            pygame.draw.circle(surface, blue, (dic_individuos[nome_completo][1], dic_individuos[nome_completo][2]), 6)
+            print(f"inidividuo: {dic_individuos[nome_completo][0]}, valores: {dic_individuos[nome_completo][5]}")
 
         if dic_individuos[nome_completo][5] == [1, 1, 1, 1]:
             dic_individuos[nome_completo][4] = False
@@ -133,14 +137,8 @@ def verifica_distancia(inicioX, inicioY, dist):
             inicioXnegative -= 1
             inicioYnegative -= 1
 
-            if surface.get_at((int(inicioXpositive), int(inicioY)))[:3] == red:
-                valores = [1, 0, 0, 0]
-            if surface.get_at((int(inicioXnegative), int(inicioY)))[:3] == red:
-                valores = [0, 0, 1, 0]
-            if surface.get_at((int(inicioX), int(inicioYpositive)))[:3] == red:
-                valores = [0, 1, 0, 0]
-            if surface.get_at((int(inicioX), int(inicioYnegative)))[:3] == red:
-                valores = [0, 0, 0, 1]
+
+        valores = [inicioXpositive, inicioYpositive, inicioXnegative, inicioYnegative]
 
     return valores
 
@@ -163,6 +161,6 @@ while jogo:
     # if (datetime.now() - now).seconds > 5:
     #    exit()
 
-    movimento_aleatorio(3)
+    movimento_aleatorio(1)
 
     pygame.display.update()
