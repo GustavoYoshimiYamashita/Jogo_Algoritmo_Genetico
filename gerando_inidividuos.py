@@ -56,14 +56,15 @@ def criando_individuos(quantidade_individuos):
     for i in range(quantidade_individuos):
         dna = []
         for y in range(4):
-            binario = random.randrange(0, 2, 1)
-            dna.append(binario)
+            valor = random.randrange(0, 10, 1)
+            valor = valor/10
+            dna.append(valor)
 
         nome_completo = nome + str(numero)
         numero += 1
         dic = {nome_completo: [nome_completo, center_v, center_h, dna, True, [0, 0, 0, 0], 0]}
         dic_individuos.update(dic)
-
+    return dic_individuos
 
 def movimento_aleatorio(velocidade):
     nome = "individuo"
@@ -153,24 +154,6 @@ def verifica_distancia(inicioX, inicioY, dist):
         valores = [distNorte, distSul, distLeste, distOeste]
         return valores
 
-criando_individuos(quantidade_individuos)
+individuos = criando_individuos(100)
 
-now = datetime.now()
-
-
-while jogo:
-
-    surface.fill(black)
-    pygame.draw.circle(surface, red, (center_v, center_h + 100), 20)
-
-    for event in pygame.event.get():
-        if event.type == QUIT:
-            pygame.quit()
-            exit()
-
-    # if (datetime.now() - now).seconds > 5:
-    #    exit()
-
-    movimento_aleatorio(3)
-
-    pygame.display.update()
+print(individuos)

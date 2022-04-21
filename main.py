@@ -37,6 +37,7 @@ image = pygame.image.load(r'C:\Users\gusta\Desktop\VideoAula1\imagens\robo-remov
 # Modificando o tamanho da imagem
 IMAGE_SMALL = pygame.transform.scale(image, (133.5, 116.75))
 
+print(individuos)
 
 while jogo:
 
@@ -63,8 +64,3 @@ while jogo:
     # Atualizando a imagem
     pygame.display.update()
     pygame.display.flip()
-
-
-
-    # Desenhando uma seta
-
