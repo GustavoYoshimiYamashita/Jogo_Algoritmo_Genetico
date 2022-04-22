@@ -1,57 +1,3 @@
-import pygame
-from pygame.locals import *
-from pygame.transform import *
-from datetime import datetime
-import random
-
-# Booleano para o while do labirinto
-jogo = True
-
-# Inicializando cor
-red = (255, 0, 0)
-green = (0, 255, 0)
-blue = (0, 0, 255)
-black = (0, 0, 0)
-gray = (200, 200, 200)
-white = (255, 255, 255)
-vertical = 600
-horizontal = 600
-
-center_h = (horizontal / 2)
-center_v = (vertical / 2)
-
-# Variáveis geração
-quantidade_individuos = 100
-dic_individuos = {}
-dna = []
-mortos = []
-valores = [0, 0, 0, 0]
-
-nome_completo = ""
-
-# Individuo = {(posiçãoX), (posiçãoY), (código genético), (integridade), (distancia), (pontuação)}
-individuo = {"individuo1": [nome_completo, center_v, center_h, dna, True, [0, 0, 0, 0], 0]}
-
-def criando_individuos(quantidade_individuos):
-    nome = "individuo"
-    numero = 1
-
-    for i in range(quantidade_individuos):
-        dna = []
-        for y in range(4):
-            peso = random.randrange(0, 10, 1)
-            peso = peso/10
-            dna.append(peso)
-
-        nome_completo = nome + str(numero)
-        numero += 1
-        dic = {nome_completo: [nome_completo, center_v, center_h, dna, True, [0, 0, 0, 0], 0]}
-        dic_individuos.update(dic)
-    return dic_individuos
-
-individuos = criando_individuos(quantidade_individuos)
-
-
 def cruzando_metade_aleatoria_metodo1(individuos):
     primeiros_5_ind1 = individuos["individuo1"][3][:2]
     ultimos_5_ind1 = individuos["individuo1"][3][2:]
@@ -101,13 +47,4 @@ def cruzando_metade_aleatoria_metodo2(individuos):
     print()
     print(f"Primeiro descendente: {primeiro_descendente}")
     print(f"Segundo descendente: {segundo_descendente}")
-
-
-
-
-
-
-cruzando_metade_aleatoria_metodo2(individuos)
-
-
 
