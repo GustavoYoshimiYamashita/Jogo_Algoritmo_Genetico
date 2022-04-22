@@ -30,7 +30,8 @@ horizontal = 600
 surface = pygame.display.set_mode((horizontal, vertical))
 
 # Gerando indivíduos
-individuos = gerando_inidividuos.criando_individuos(vertical/2, horizontal/2, 100)
+seres = individuos.criando_individuos(vertical/2, horizontal/2, 100)
+individuos.desenhando_individuos(seres)
 
 
 while jogo:

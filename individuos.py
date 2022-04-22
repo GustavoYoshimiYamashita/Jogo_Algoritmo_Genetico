@@ -69,3 +69,8 @@ def cruzando_metade_aleatoria_metodo2(individuos):
     print(f"Primeiro descendente: {primeiro_descendente}")
     print(f"Segundo descendente: {segundo_descendente}")
 
+def imprimindo_individuos(individuos):
+
+    for i in individuos:
+        print(individuos[i])
+
