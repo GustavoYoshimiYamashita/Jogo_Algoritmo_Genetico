@@ -11,8 +11,7 @@ LinkedIn: https://www.linkedin.com/in/gustavo-yamashita/
 import pygame
 from pygame.locals import *
 from pygame.transform import *
-import cruzamento_individuos
-import gerando_inidividuos
+import individuos
 
 # Booleano para o while do labirinto
 jogo = True
@@ -30,8 +29,9 @@ horizontal = 600
 # Inicializando a tela do Pygame
 surface = pygame.display.set_mode((horizontal, vertical))
 
-individuos = gerando_inidividuos.criando_individuos(300, 300, 100)
-print(individuos)
+# Gerando indivíduos
+individuos = gerando_inidividuos.criando_individuos(vertical/2, horizontal/2, 100)
+
 
 while jogo:
 
